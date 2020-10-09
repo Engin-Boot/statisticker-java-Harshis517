@@ -19,22 +19,21 @@ public class Statistics
         }
     }
 
+
+   
     public static Stats getStatistics(List<Float> numbers) {
-        if(numbers.isEmpty())
-            return new Stats();
-        float min, max;
-        float avg=0;
-        min = numbers.get(0);
-        max= min;
-        for(float f:numbers){
-            if(min>f)
-                min=f;
-            if(max<f)
-                max=f;
-            avg=avg+f;
+        //implement the computation of statistics here
+        Statistics.Stats s=new Stats();
+        if(!numbers.isEmpty())
+        {
+            s.min= Collections.min(numbers);
+            s.max= Collections.max(numbers);
+            Float sum=0.0f;
+            for(Float number:numbers){
+                sum+=number;
+            }
+            s.average=(Float)sum/numbers.size();
+
         }
-        avg=avg/numbers.size();
-        Statistics.Stats s=new Statistics.Stats(avg,min,max);
         return s;
-    }
 }
