@@ -1,17 +1,32 @@
 package statisticker;
 
-import static org.junit.Assert.*;
-import jdk.nashorn.internal.AssertsEnabled;
+import org.junit.Assert;
+import org.junit.Test;
+import java.lang.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
+//import jdk.nashorn.internal.AssertsEnabled;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class StatisticsTest 
 {
-      @Test
+    @Test
+    public void reportsAverageMinMaxx()
+    {
+        Float[] numbers = {1.5f, 8.9f, 3.2f, 4.5f};
+        List<Float> numberList = Arrays.asList(numbers);
+
+        Statistics.Stats s = Statistics.getStatistics(numberList);
+
+        float epsilon = 0.001f;
+        assertEquals(s.average, 4.525f, epsilon);
+        assertEquals(s.min, 1.5f, epsilon);
+        assertEquals(s.max, 8.9f, epsilon);
+    }
+    @Test
     public void reportsNaNForEmptyInput()
     {
         List<Float> emptyList = new ArrayList<>();
@@ -22,21 +37,4 @@ public class StatisticsTest
         Assert.assertTrue(s.min.isNaN());
         Assert.assertTrue(s.max.isNaN());
     }
-    
-    
-    @Test
-    public void reportsAverageMinMaxx()
-    {
-        Float[] numbers = {1.5f, 8.9f, 3.2f, 4.5f};
-        List<Float> numberList = Arrays.asList(numbers);
-
-        Statistics.Stats s = Statistics.getStatistics(numberList);
-
-        float epsilon = 0.001f;
-             assertEquals(s.min, 1.5f, epsilon);
-        assertEquals(s.max, 8.9f, epsilon);
-        assertEquals(s.average, 4.525f, epsilon);
-   
-    }
-   
 }
