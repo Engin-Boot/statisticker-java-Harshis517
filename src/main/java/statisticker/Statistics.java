@@ -13,7 +13,6 @@ public class Statistics
         public Float average=Float.NaN;
     }
     public static Stats getStatistics(List<Float> numbers) {
-        //implement the computation of statistics here
         Statistics.Stats s=new Stats();
         if(!numbers.isEmpty())
         {
