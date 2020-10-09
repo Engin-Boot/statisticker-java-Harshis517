@@ -36,5 +36,9 @@ public class StatisticsTest
         Assert.assertTrue(s.average.isNaN());
         Assert.assertTrue(s.min.isNaN());
         Assert.assertTrue(s.max.isNaN());
+          assertEquals(s.average, Float.NaN, 0.0);
+        assertEquals(s.min, Float.NaN, 0.0);
+        assertEquals(s.max, Float.NaN, 0.0);
     }
 }
+   
