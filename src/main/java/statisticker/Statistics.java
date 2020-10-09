@@ -1,6 +1,9 @@
 package statisticker;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
 
 public class Statistics 
 {
@@ -9,10 +12,8 @@ public class Statistics
         public Float max=Float.NaN;
         public Float average=Float.NaN;
     }
-
-   
     public static Stats getStatistics(List<Float> numbers) {
-
+        //implement the computation of statistics here
         Statistics.Stats s=new Stats();
         if(!numbers.isEmpty())
         {
@@ -26,4 +27,6 @@ public class Statistics
 
         }
         return s;
+
+    }
 }
